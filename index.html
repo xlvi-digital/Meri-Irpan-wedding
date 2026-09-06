@@ -572,6 +572,9 @@ form.addEventListener('submit', e => {
 
             btnKirim.disabled = false;
             btnKirim.textContent = "Kirim";
+
+            // PERBAIKAN: Panggil loadComments() agar ucapan baru langsung muncul tanpa refresh
+            loadComments();
         })
         .catch(error => {
             toastr.error('Terjadi kesalahan, coba lagi nanti.', 'Gagal');
@@ -582,7 +585,6 @@ form.addEventListener('submit', e => {
 });
 
 const getURL = "https://script.google.com/macros/s/AKfycbylTTgAydr3dCpo4g-1_6pLuyNxCKtBE21kTbhaIqZWk2ceYtFmrWwrt1HiX9R0D865/exec";
-  // pakai url GET
 
 function loadComments() {
   fetch(getURL)
@@ -640,8 +642,6 @@ function timeAgo(date) {
   }
   return "Baru saja";
 }
-
-
 </script>
 
 
